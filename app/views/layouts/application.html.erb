@@ -8,6 +8,24 @@
 </head>
 <body>
 
+<header>
+  <% if user_signed_in? %>
+    Logged in as <%= current_user.email %>.
+    <%= link_to 'Edit profile', edit_user_registration_path %>
+  <% else %>
+    <%= link_to 'Login', new_user_session_path %> or
+    <%= link_to 'Sign up', new_user_registration_path %>
+  <% end %>
+</header>
+
+<% if notice %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+<% if alert  %>
+  <p class="alert"><%= alert %></p>
+<% end %>
+
+
 <%= yield %>
 
 </body>

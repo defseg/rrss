@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303084207) do
+ActiveRecord::Schema.define(version: 20150305125710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "entries", force: :cascade do |t|
+    t.integer  "feed_id"
+    t.string   "title"
+    t.string   "link"
+    t.string   "description"
+    t.datetime "pubDate"
+    t.string   "content_encoded"
+    t.string   "category"
+    t.string   "dc_creator"
+    t.string   "guid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

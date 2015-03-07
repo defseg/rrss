@@ -3,6 +3,8 @@ Reasonable RSS
 TODO:
 =====
 
+* adding feeds from the page
+* should have separate homepages for 
 * add tags/buckets for feeds (none of liferea's folder nonsense)
 * * this will mean feeds will need to have a show page so tags can be edited
 * social: article sharing

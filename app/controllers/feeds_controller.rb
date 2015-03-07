@@ -1,13 +1,16 @@
 class FeedsController < ApplicationController
 
   def new
+    # things will go here eventually
+    # but for now, feed urls will be created from the main page
   end
 
   def create
     feed = current_user.feeds.create(feed_params)
     if feed
       # TODO put a flash notification in here
-      redirect_to "static_pages#home"
+      feed.reload
+      redirect_to root_url
     else
       # TODO put an error message in here
       render :new

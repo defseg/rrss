@@ -5,10 +5,10 @@ Add feed:
   <%= form_token %>
   <input type="text" name="feed[url]" value="">
   <input type="submit" value="Submit">
-</form>
 
-<% current_user.feeds.each do |feed| %>
-  <% feed.entries.each do |entry| %>
-    <p><%= entry.title %></p>
+  <% @feeds.each do |feed| %>
+    <li>
+      <%= feed.url %>
+    </li>
   <% end %>
-<% end %>
+</form>

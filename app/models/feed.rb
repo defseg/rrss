@@ -17,4 +17,15 @@ class Feed < ActiveRecord::Base
       end
     end
   end
+
+  def get_title
+    data = SimpleRSS.parse(open(self.url))
+    data.title
+  end
+
+  def get_title!
+    data = SimpleRSS.parse(open(self.url))
+    self.title = data.title
+    self.save
+  end
 end

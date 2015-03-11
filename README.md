@@ -3,8 +3,7 @@ Reasonable RSS
 TODO:
 =====
 
-* adding feeds from the page
-* should have separate homepages for 
+* it errors if there's whitespace before the http:// -- should trim that
 * add tags/buckets for feeds (none of liferea's folder nonsense)
 * * this will mean feeds will need to have a show page so tags can be edited
 * social: article sharing
@@ -15,3 +14,9 @@ TODO:
 * * * if social, should add some method of communication maybe?
 * * * no, no feature creep here
 * * * even if user follows are handled internally, should still do RSS thing
+
+DONE:
+=====
+
+* adding feeds from the page
+* should have separate homepages for

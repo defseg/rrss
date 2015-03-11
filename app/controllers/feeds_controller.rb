@@ -6,8 +6,11 @@ class FeedsController < ApplicationController
   end
 
   def create
-    feed = current_user.feeds.create(feed_params)
-    if feed
+    feed = current_user.feeds.new(feed_params)
+    # TODO allow custom titles?
+    feed.title = feed.get_title
+
+    if feed.save
       # TODO put a flash notification in here
       feed.reload
       redirect_to root_url

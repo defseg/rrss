@@ -6,9 +6,10 @@ Add feed:
   <input type="text" name="feed[url]" value="">
   <input type="submit" value="Submit">
 
-  <% @feeds.each do |feed| %>
-    <li>
-      <%= feed.url %>
-    </li>
+  <% @entries.each do |entry| %>
+    <p>
+      <%= entry.feed.title %><br>
+      <%= entry.title %>
+    </p>
   <% end %>
 </form>

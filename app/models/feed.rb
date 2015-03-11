@@ -9,11 +9,14 @@ class Feed < ActiveRecord::Base
 
     data = SimpleRSS.parse(open(self.url))
     loaded_guids = self.entries.pluck(:guid)
-    data.entries.each do |entry_data|
-      unless loaded_guids.include?(entry_data.guid)
-        # this makes a separate query for each new post.
-        # TODO: can this be optimized?
-        Entry.create_from_data!(entry_data, self)
+    # TODO: I *think* this optimizes it, but I'm not sure. should check.
+    # or: use upsert? (TODO)
+    Entry.transaction do
+      data.entries.each do |entry_data|
+        unless loaded_guids.include?(entry_data.guid)
+          # this makes a separate query for each new post.
+          Entry.create_from_data!(entry_data, self)
+        end
       end
     end
   end

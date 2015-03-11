@@ -12,7 +12,7 @@ class Entry < ActiveRecord::Base
       title:           data[:title],
       link:            data[:link],
       description:     data[:description],
-      pubDate:         data[:pubDate],
+      pub_date:         data[:pubDate],
       content_encoded: data[:content_encoded],
       category:        data[:category],
       dc_creator:      data[:dc_creator],

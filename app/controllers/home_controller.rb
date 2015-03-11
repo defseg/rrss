@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @entries = Entry.joins("INNER JOIN feeds ON entries.feed_id = feeds.id")
                     .joins("INNER JOIN users ON feeds.user_id = users.id")
                     .where(users: {id: current_user.id})
-                    .order("entries.updated_at DESC")
+                    .order("entries.pub_date DESC")
                     .includes(:feed)
                     .page(params[:page] || 1)
     render :index

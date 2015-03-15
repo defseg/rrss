@@ -12,6 +12,7 @@ Add feed:
 <% @entries.each do |entry| %>
   <p>
     <%= entry.feed.title %><br>
-    <%= entry.title %>
+    <%= entry.title %><br>
+    <%= entry.description %>
   </p>
 <% end %>

@@ -9,6 +9,7 @@ class HomeController < ApplicationController
                     .order("entries.pub_date DESC")
                     .includes(:feed)
                     .page(params[:page] || 1)
+
     render :index
   end
 

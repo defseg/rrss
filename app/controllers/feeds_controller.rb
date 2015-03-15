@@ -20,6 +20,13 @@ class FeedsController < ApplicationController
     end
   end
 
+  def reload_all
+    feeds = Feed.where(id: current_user.id)
+    feeds.each { |feed| feed.reload }
+    puts feeds
+    redirect_to root_url
+  end
+
   private
 
   def feed_params

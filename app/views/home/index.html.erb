@@ -6,6 +6,8 @@ Add feed:
   <input type="text" name="feed[url]" value="">
   <input type="submit" value="Submit">
 
+<%= link_to "Reload all feeds", reload_all_feeds_url %>
+
   <% @entries.each do |entry| %>
     <p>
       <%= entry.feed.title %><br>

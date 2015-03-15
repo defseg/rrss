@@ -5,13 +5,13 @@ Add feed:
   <%= form_token %>
   <input type="text" name="feed[url]" value="">
   <input type="submit" value="Submit">
+</form>
 
 <%= link_to "Reload all feeds", reload_all_feeds_url %>
 
-  <% @entries.each do |entry| %>
-    <p>
-      <%= entry.feed.title %><br>
-      <%= entry.title %>
-    </p>
-  <% end %>
-</form>
+<% @entries.each do |entry| %>
+  <p>
+    <%= entry.feed.title %><br>
+    <%= entry.title %>
+  </p>
+<% end %>

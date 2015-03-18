@@ -7,12 +7,23 @@ Add feed:
   <input type="submit" value="Submit">
 </form>
 
-<%= link_to "Reload all feeds", reload_all_feeds_url %>
+<div class="sidebar">
+	<ul>
+		<% @feeds.each do |feed| %>
+		  <li>
+			  <%= feed.title %>
+			</li>
+		<% end %>
+	</ul>
+</div>
+<div class="main">
+	<%= link_to "Reload all feeds", reload_all_feeds_url %>
 
-<% @entries.each do |entry| %>
-  <p>
-    <%= entry.feed.title %><br>
-    <%= entry.title %><br>
-    <%= entry.description %>
-  </p>
-<% end %>
+	<% @entries.each do |entry| %>
+	  <p>
+	    <%= entry.feed.title %><br>
+	    <%= entry.title %><br>
+	    <%= entry.description %>
+	  </p>
+	<% end %>
+</div>

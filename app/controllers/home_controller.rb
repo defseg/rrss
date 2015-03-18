@@ -10,6 +10,9 @@ class HomeController < ApplicationController
                     .includes(:feed)
                     .page(params[:page] || 1)
 
+    # TODO optimize this
+    @feeds = current_user.feeds
+
     render :index
   end
 

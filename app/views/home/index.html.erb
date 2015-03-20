@@ -11,7 +11,7 @@ Add feed:
 	<ul>
 		<% @feeds.each do |feed| %>
 		  <li>
-			  <%= feed.title %>
+			  <%= link_to feed.title, feed_url(feed.id) %>
 			</li>
 		<% end %>
 	</ul>

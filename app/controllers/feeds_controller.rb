@@ -27,6 +27,11 @@ class FeedsController < ApplicationController
     redirect_to root_url
   end
 
+  def show
+    @feed = Feed.find(params[:id])
+    render :show
+  end
+
   private
 
   def feed_params

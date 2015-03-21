@@ -12,6 +12,7 @@ class Feed < ActiveRecord::Base
     # TODO: I *think* this optimizes it, but I'm not sure. should check.
     # or: use upsert? (TODO)
     Entry.transaction do
+      # TODO optimize
       self.entries.each do |entry|
         entry.seen = true
         entry.save!

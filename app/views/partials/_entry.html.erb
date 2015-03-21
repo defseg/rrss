@@ -2,10 +2,13 @@
 	<h2>
 		<a href="<%= entry.link %>">
 			<%= entry.title %>
+			<% unless entry.seen %>
+ 				<em>(new)</em>
+			<% end %>
 		</a>
 	</h2>
 	<% if show_feed_titles %>
-		<i><%= link_to entry.feed.title, feed_url(entry.feed) %></i><br>
+		<em><%= link_to entry.feed.title, feed_url(entry.feed) %></em><br>
 	<% end %>
 	<%= sanitize(entry.content_encoded) %>
 </li>

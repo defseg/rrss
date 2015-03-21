@@ -12,6 +12,11 @@ class Feed < ActiveRecord::Base
     # TODO: I *think* this optimizes it, but I'm not sure. should check.
     # or: use upsert? (TODO)
     Entry.transaction do
+      self.entries.each do |entry|
+        entry.seen = true
+        entry.save!
+      end
+
       data.entries.each do |entry_data|
         puts entry_data[:pubDate]
         unless loaded_guids.include?(entry_data.guid)

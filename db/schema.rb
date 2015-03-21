@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311183754) do
+ActiveRecord::Schema.define(version: 20150321070218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150311183754) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "pub_date"
+    t.boolean  "seen",            default: false, null: false
   end
 
   create_table "feeds", force: :cascade do |t|

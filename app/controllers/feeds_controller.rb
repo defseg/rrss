@@ -1,5 +1,7 @@
 class FeedsController < ApplicationController
 
+  before_action :require_login
+
   def new
     # things will go here eventually
     # but for now, feed urls will be created from the main page
@@ -20,10 +22,23 @@ class FeedsController < ApplicationController
     end
   end
 
+  def index
+    @entries = Entry.joins("INNER JOIN feeds ON entries.feed_id = feeds.id")
+                    .joins("INNER JOIN users ON feeds.user_id = users.id")
+                    .where(users: {id: current_user.id})
+                    .order("entries.pub_date DESC")
+                    .includes(:feed)
+                    .page(params[:page] || 1)
+
+    # TODO optimize this
+    @feeds = current_user.feeds
+
+    render :index
+  end
+
   def reload_all
     feeds = Feed.where(id: current_user.id)
     feeds.each { |feed| feed.reload }
-    puts feeds
     redirect_to root_url
   end
 
@@ -50,4 +65,9 @@ class FeedsController < ApplicationController
   def feed_params
     params.require(:feed).permit(:url)
   end
+
+  def require_login
+    redirect_to splash_url unless current_user
+  end
+
 end

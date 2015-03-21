@@ -32,6 +32,13 @@ class FeedsController < ApplicationController
     render :show
   end
 
+  def destroy
+    feed = Feed.find(params[:id])
+    feed.destroy
+    flash[:notice] = "Feed deleted"
+    redirect_to root_url
+  end
+
   private
 
   def feed_params

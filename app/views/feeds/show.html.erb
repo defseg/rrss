@@ -1,9 +1,6 @@
 <h1><%= @feed.title %></h1>
 <ul>
 	<% @feed.entries.each do |entry| %>
-		<li>
-			<h2><%= entry.title %></h2>
-			<%= entry.description %>
-		</li>
+		<%= render 'partials/entry', entry: entry, show_feed_titles: false %>
 	<% end %>
 </ul>

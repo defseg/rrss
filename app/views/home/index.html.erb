@@ -20,10 +20,6 @@ Add feed:
 	<%= link_to "Reload all feeds", reload_all_feeds_url %>
 
 	<% @entries.each do |entry| %>
-	  <p>
-	    <%= entry.feed.title %><br>
-	    <%= entry.title %><br>
-	    <%= entry.description %>
-	  </p>
+	 <%= render 'partials/entry', entry: entry, show_feed_titles: true %>
 	<% end %>
 </div>

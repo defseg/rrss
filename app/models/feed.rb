@@ -2,7 +2,7 @@ require 'open-uri' # TODO: is this good practice?
 
 class Feed < ActiveRecord::Base
   validates :url, uniqueness: { scope: :user_id }
-  has_many :entries, class_name: 'Entry'
+  has_many :entries, class_name: 'Entry', dependent: :destroy
 
   def reload
     self.touch
@@ -13,6 +13,7 @@ class Feed < ActiveRecord::Base
     # or: use upsert? (TODO)
     Entry.transaction do
       data.entries.each do |entry_data|
+        puts entry_data[:pubDate]
         unless loaded_guids.include?(entry_data.guid)
           # this makes a separate query for each new post.
           Entry.create_from_data!(entry_data, self)

@@ -3,6 +3,7 @@ Reasonable RSS
 TODO:
 =====
 
+* simple_rss fails on some pubDates
 * it errors if there's whitespace before the http:// -- should trim that
 * add tags/buckets for feeds (none of liferea's folder nonsense)
 * * this will mean feeds will need to have a show page so tags can be edited

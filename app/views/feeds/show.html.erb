@@ -1,4 +1,8 @@
-<h1><%= @feed.title %> <%= button_to "Delete feed", feed_url, method: :delete %></h1>
+<div class="feed-header">
+	<h1><%= @feed.title %></h1>
+	<%= button_to "Delete feed", feed_url, method: :delete %>
+	<%= link_to "Reload feed", reload_feed_url(@feed) %>
+</div>
 <ul>
 	<% @feed.entries.each do |entry| %>
 		<%= render 'partials/entry', entry: entry, show_feed_titles: false %>

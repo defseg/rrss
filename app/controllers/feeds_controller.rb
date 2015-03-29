@@ -50,6 +50,7 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.find(params[:id])
+    @entries = @feed.entries.order("pub_date DESC")
     render :show
   end
 

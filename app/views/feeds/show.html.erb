@@ -4,7 +4,7 @@
 	<%= button_to "Reload feed", reload_feed_url(@feed), method: :put %>
 </div>
 <ul>
-	<% @feed.entries.each do |entry| %>
+	<% @entries.each do |entry| %>
 		<%= render 'partials/entry', entry: entry, show_feed_titles: false %>
 	<% end %>
 </ul>

@@ -5,7 +5,7 @@
     <input type="text" name="feed[url]" value="">
     <input type="submit" value="Submit">
   </form>
-  
+
 	<ul>
 		<% @feeds.each do |feed| %>
 		  <li>
@@ -20,4 +20,6 @@
 	<% @entries.each do |entry| %>
 	 <%= render 'partials/entry', entry: entry, show_feed_titles: true %>
 	<% end %>
+
+  <%= paginate @entries %>
 </div>

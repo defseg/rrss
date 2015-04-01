@@ -37,7 +37,7 @@ class FeedsController < ApplicationController
   end
 
   def reload_all
-    feeds = Feed.where(id: current_user.id)
+    feeds = current_user.feeds
     feeds.each { |feed| feed.reload }
     redirect_to root_url
   end

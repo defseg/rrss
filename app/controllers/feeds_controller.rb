@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
 
   before_action :require_login
-  before_action :require_own, except: [:reload_all, :index]
+  before_action :require_own, except: [:reload_all, :index, :create]
 
   def new
     # things will go here eventually

@@ -1,11 +1,11 @@
 html, body, header, footer, section, article, div, strong, img, h1, h2, p,
-h3, time, header ul, header li, small, form, label, input, textarea, button, a {
+h3, time, ul, li, small, form, label, input, textarea, button, a {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
   font: inherit;
-  box-sizing: inherit;
+  box-sizing: border-box;
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;

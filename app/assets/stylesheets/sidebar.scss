@@ -1,0 +1,13 @@
+@import 'colors';
+
+.sidebar {
+  float: left;
+  width: calc(30% - 21px);
+  padding-right: 20px;
+}
+
+.main {
+  float: right;
+  width: 70%;
+  border-left: 1px solid $border;
+}

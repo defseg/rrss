@@ -3,7 +3,7 @@ Reasonable RSS
 TODO:
 =====
 
-* simple_rss fails on some pubDates
+* switch servers to at least thin, preferably puma?
 * it errors if there's whitespace before the http:// -- should trim that
 * add tags/buckets for feeds (none of liferea's folder nonsense)
 * * this will mean feeds will need to have a show page so tags can be edited
@@ -21,3 +21,4 @@ DONE:
 
 * adding feeds from the page
 * should have separate homepages for
+* simple_rss fails on some pubDates (resolved, the test feed was broken...)

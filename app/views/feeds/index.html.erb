@@ -1,19 +1,4 @@
-<div class="sidebar">
-  Add feed:
-  <form action="<%= feeds_url %>" method="POST">
-    <%= form_token %>
-    <input type="text" name="feed[url]" value="">
-    <input type="submit" value="Submit">
-  </form>
-
-	<ul>
-		<% @feeds.each do |feed| %>
-		  <li>
-			  <%= link_to feed.title, feed_url(feed.id) %>
-			</li>
-		<% end %>
-	</ul>
-</div>
+<%= render 'sidebar', feeds: @feeds %>
 <div class="main">
 	<%= button_to "Reload all feeds", reload_all_feeds_url, method: :put %>
 

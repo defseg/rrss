@@ -50,6 +50,7 @@ class FeedsController < ApplicationController
   end
 
   def show
+    @feeds = current_user.feeds # need this for the sidebar
     @feed = Feed.find(params[:id])
     @entries = @feed.entries.order("pub_date DESC")
     render :show
@@ -73,7 +74,7 @@ class FeedsController < ApplicationController
   end
 
   def require_own
-    redirect_to root_url unless Feed.find(params[:id]) == current_user.id
+    redirect_to root_url unless Feed.find(params[:id]).user_id == current_user.id
   end
 
 end

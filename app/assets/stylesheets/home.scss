@@ -4,18 +4,15 @@
 
 @import 'colors';
 
-header {
-  background: #333;
-  color: #ddd;
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
 header ul {
   text-align: left;
 }
 
 input {
   border: 1px solid $border;
+}
+
+.main a {
+  color: blue;
+  text-decoration: underline;
 }

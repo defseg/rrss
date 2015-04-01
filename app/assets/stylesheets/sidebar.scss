@@ -2,12 +2,18 @@
 
 .sidebar {
   float: left;
-  width: calc(30% - 21px);
-  padding-right: 20px;
+  width: 30%;
+  padding: 10px 10px 0px 10px;
+
+  form, input {
+    width: 100%;
+  }
 }
 
 .main {
+  padding: 10px 0px 0px 10px;
   float: right;
   width: 70%;
+  padding-left: 10px;
   border-left: 1px solid $border;
 }

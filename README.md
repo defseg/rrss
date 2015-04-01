@@ -3,6 +3,7 @@ Reasonable RSS
 TODO:
 =====
 
+* make the formatting not disappear
 * switch servers to at least thin, preferably puma?
 * it errors if there's whitespace before the http:// -- should trim that
 * add tags/buckets for feeds (none of liferea's folder nonsense)

@@ -1,5 +1,5 @@
-html, body, header, footer, section, article, div, strong, img, h1, h2, p,
-h3, time, ul, li, small, form, label, input, textarea, button, a {
+html, body, header, footer, section, article, div, strong, img, p,
+time, ul, li, small, form, label, input, textarea, button, a {
   margin: 0;
   padding: 0;
   border: 0;
@@ -16,6 +16,10 @@ h3, time, ul, li, small, form, label, input, textarea, button, a {
 p {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
+}
+
+input[type="submit"], button {
+  cursor: pointer;
 }
 
 h1, h2, h3 {

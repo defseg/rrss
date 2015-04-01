@@ -1,6 +1,7 @@
 class FeedsController < ApplicationController
 
   before_action :require_login
+  before_action :require_own, except: [:reload_all, :index]
 
   def new
     # things will go here eventually
@@ -68,7 +69,11 @@ class FeedsController < ApplicationController
   end
 
   def require_login
-    redirect_to splash_url unless current_user
+    redirect_to root_url unless current_user
+  end
+
+  def require_own
+    redirect_to root_url unless Feed.find(params[:id]) == current_user.id
   end
 
 end

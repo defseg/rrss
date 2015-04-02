@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   get '/splash' => 'home#splash', as: :splash
   resources :feeds
 
+  namespace :api do
+    resources :feeds
+  end
+
 end

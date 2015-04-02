@@ -1,5 +1,5 @@
-<li>
-	<h2>
+<li class="entry">
+	<h2 class="entry-title">
 		<a href="<%= entry.link %>">
 			<%= entry.title %>
 			<% unless entry.seen %>
@@ -7,8 +7,10 @@
 			<% end %>
 		</a>
 	</h2>
-	<% if show_feed_titles %>
-		<em><%= link_to entry.feed.title, feed_url(entry.feed) %></em><br>
-	<% end %>
-	<%= sanitize(entry.content_encoded) %>
+	<div class="entry-content">
+		<% if show_feed_titles %>
+			<em><%= link_to entry.feed.title, feed_url(entry.feed) %></em><br>
+		<% end %>
+		<%= sanitize(entry.content_encoded) %>
+	</div>
 </li>

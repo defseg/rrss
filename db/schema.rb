@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321070218) do
+ActiveRecord::Schema.define(version: 20150322175729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bucketings", force: :cascade do |t|
+    t.integer "bucket_id", null: false
+    t.integer "feed_id",   null: false
+  end
+
+  add_index "bucketings", ["bucket_id", "feed_id"], name: "index_bucketings_on_bucket_id_and_feed_id", unique: true, using: :btree
+
+  create_table "buckets", force: :cascade do |t|
+    t.string  "name"
+    t.integer "user_id", null: false
+  end
+
+  add_index "buckets", ["name", "user_id"], name: "index_buckets_on_name_and_user_id", unique: true, using: :btree
 
   create_table "entries", force: :cascade do |t|
     t.integer  "feed_id"

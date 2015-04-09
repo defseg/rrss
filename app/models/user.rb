@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :feeds
+  has_many :buckets
+  has_many :bucketings, through: :buckets
 end

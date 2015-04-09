@@ -6,6 +6,7 @@ TODO:
 * make the formatting not disappear
 * switch servers to at least thin, preferably puma?
 * it errors if there's whitespace before the http:// -- should trim that
+* or if there's no http://
 * add tags/buckets for feeds (none of liferea's folder nonsense)
 * * this will mean feeds will need to have a show page so tags can be edited
 * social: article sharing

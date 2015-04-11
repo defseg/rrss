@@ -37,6 +37,33 @@ class FeedsController < ApplicationController
     render :index
   end
 
+  def bucket
+    # TODO should make sure the bucketing exists
+    @feed = Feed.find(params[:id])
+    @bucketing = @feed.bucketings.new(bucket_id: @bucket.id)
+    if @bucketing.save
+      redirect_to feed_url(@feed)
+    else
+      # TODO put an error message in here
+      redirect_to feed_url(@feed)
+    end
+  end
+
+  def unbucket
+    @bucketing = Bucketing.find_by(feed_id: params[:id], bucket_id: params[:bucket_id])
+    if @bucketing
+      if @bucketing.destroy
+        redirect_to feed_url(params[:id])
+      else
+        # TODO put an error message in here
+        redirect_to feed_url(params[:id])
+      end
+    else
+      # TODO put an error message in here
+      redirect_to feed_url(params[:id])
+    end
+  end
+
   def reload_all
     feeds = current_user.feeds
     feeds.each { |feed| feed.reload }

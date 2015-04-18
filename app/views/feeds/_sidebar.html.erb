@@ -6,10 +6,20 @@
   </form>
 
 	<ul>
-		<% @feeds.each do |feed| %>
-		  <li>
-			  <%= link_to feed.title, feed_url(feed.id) %>
+		<% @unbucketed_feeds.each do |feed| %>
+			<li>
+				<%= link_to feed.title, feed_url(feed.id) %>
 			</li>
+		<% end %>
+		<% @buckets.keys.each do |bucket| %>
+		  <ul>
+		  	<em><%= bucket.name %></em>
+			  <% bucket.feeds.each do |feed| %>
+				  <li>
+					  <%= link_to feed.title, feed_url(feed.id) %>
+					</li>
+				<% end %>
+			</ul>
 		<% end %>
 	</ul>
 </div>

@@ -3,6 +3,8 @@ require 'open-uri' # TODO: is this good practice?
 class Feed < ActiveRecord::Base
   validates :url, uniqueness: { scope: :user_id }
   has_many :entries, class_name: 'Entry', dependent: :destroy
+  has_many :bucketings
+  has_many :buckets, through: :bucketings
 
   def reload
     self.touch

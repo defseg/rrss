@@ -3,7 +3,7 @@
 	<%= button_to "Reload all feeds", reload_all_feeds_url, method: :put %>
 
 	<% @entries.each do |entry| %>
-	 <%= render 'partials/entry', entry: entry, show_feed_titles: true %>
+	 <%= render 'partials/entry', entry: entry, show_feed_titles: true, buckets: @buckets %>
 	<% end %>
 
   <%= paginate @entries %>

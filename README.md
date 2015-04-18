@@ -3,6 +3,8 @@ Reasonable RSS
 TODO:
 =====
 
+* web interface for buckets
+* sidebar style should handle buckets better
 * make the formatting not disappear
 * switch servers to at least thin, preferably puma?
 * it errors if there's whitespace before the http:// -- should trim that

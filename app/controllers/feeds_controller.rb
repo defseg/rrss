@@ -32,7 +32,17 @@ class FeedsController < ApplicationController
                     .page(params[:page] || 1)
 
     # TODO optimize this
-    @feeds = current_user.feeds
+    @feeds = current_user.feeds.includes(:buckets)
+    @unbucketed_feeds = @feeds.reject { |feed| feed.buckets.any? }
+    @buckets = {}
+    @feeds.each do |feed|
+      feed.buckets.each do |bucket|
+        @buckets[bucket] = [] unless @buckets[bucket]
+        @buckets[bucket] << feed
+      end
+    end
+
+    puts @buckets
 
     render :index
   end

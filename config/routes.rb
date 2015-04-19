@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   put '/reload-all' => 'feeds#reload_all', as: :reload_all_feeds
   put '/feeds/:id/reload' => 'feeds#reload', as: :reload_feed
   get '/splash' => 'home#splash', as: :splash
+  put '/feeds/:id/bucket/:bucket_id', as: :bucket_feed
+  delete '/feeds/:id/bucket/:bucket_id', as: :unbucket_feed
   resources :feeds
   resources :buckets
 

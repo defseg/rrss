@@ -3,7 +3,8 @@ Reasonable RSS
 TODO:
 =====
 
-* web interface for buckets
+* web interface to bucket/unbucket feeds
+* bucket CRUD
 * sidebar style should handle buckets better
 * make the formatting not disappear
 * switch servers to at least thin, preferably puma?

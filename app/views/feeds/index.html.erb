@@ -1,4 +1,4 @@
-<%= render 'sidebar', feeds: @feeds %>
+<%= render 'sidebar', unbucketed_feeds: @unbucketed_feeds %> <!-- TODO why does this work? -->
 <div class="main">
 	<%= button_to "Reload all feeds", reload_all_feeds_url, method: :put %>
 

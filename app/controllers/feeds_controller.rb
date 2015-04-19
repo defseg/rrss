@@ -31,19 +31,7 @@ class FeedsController < ApplicationController
                     .includes(:feed)
                     .page(params[:page] || 1)
 
-    # TODO optimize this
-    @feeds = current_user.feeds.includes(:buckets)
-    @unbucketed_feeds = @feeds.reject { |feed| feed.buckets.any? }
-    @buckets = {}
-    @feeds.each do |feed|
-      feed.buckets.each do |bucket|
-        @buckets[bucket] = [] unless @buckets[bucket]
-        @buckets[bucket] << feed
-      end
-    end
-
-    puts @buckets
-
+    @buckets, @unbucketed_feeds = buckets_and_unbucketed_feeds
     render :index
   end
 
@@ -87,9 +75,9 @@ class FeedsController < ApplicationController
   end
 
   def show
-    @feeds = current_user.feeds # need this for the sidebar
     @feed = Feed.find(params[:id])
     @entries = @feed.entries.order("pub_date DESC")
+    @buckets, @unbucketed_feeds = buckets_and_unbucketed_feeds # for sidebar
     render :show
   end
 
@@ -112,6 +100,18 @@ class FeedsController < ApplicationController
 
   def require_own
     redirect_to root_url unless Feed.find(params[:id]).user_id == current_user.id
+  end
+
+  def buckets_and_unbucketed_feeds
+    feeds = current_user.feeds.includes(:buckets)
+    buckets = {}
+    feeds.each do |feed|
+      feed.buckets.each do |bucket|
+        buckets[bucket] = [] unless buckets[bucket]
+        buckets[bucket] << feed
+      end
+    end
+    [buckets, feeds.reject { |feed| feed.buckets.any? }]
   end
 
 end

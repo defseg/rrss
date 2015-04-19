@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   put '/feeds/:id/reload' => 'feeds#reload', as: :reload_feed
   get '/splash' => 'home#splash', as: :splash
   resources :feeds
+  resources :buckets
 
 end
